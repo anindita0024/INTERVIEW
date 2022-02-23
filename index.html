@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+
+
+        //     Write a function spinWords that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed  
+
+        // Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+
+
+        // Examples: 
+
+
+
+        // spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw"
+
+
+
+        //  spinWords( "This is a test") => returns "This is a test" 
+
+
+
+        // spinWords( "This is another test" )=> returns "This is rehtona test"
+
+
+
+        //////////////////ans ====////////
+
+
+        function spinWord(str) {
+
+            var word = "";
+            var spin = str.split(" ");
+
+            for (let i = 0; i < spin.length; i++) {
+                if (word) word += ' '
+                if (spin[i].length >= 5) {
+                    word += spin[i].split("").reverse().join("")
+                } else {
+                    word += spin[i]
+                }
+            }
+            return word
+        }
+
+        console.log(spinWord("Hey Fellow Warriors"))
+
+
+///--------------------------------------------------------------------------------------------------------/////
+
+
+//////////////QS.2....You are given the following information, but you may prefer to do some research for yourself.
+
+ 
+// 1 Jan 1900 was a Monday.
+// Thirty days has September,
+// April, June and November.
+// All the rest have thirty-one,
+// Saving February alone,
+// Which has twenty-eight, rain or shine.
+// And on leap years, twenty-nine.
+// A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
+// How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+
+ 
+
+// Try solving through code ...
+
+//////ANS ======//////
+        
+        let countSunday = (firstYear, lastYear) =>{
+
+            let sunday = 0;
+            let i ;
+            let j ;
+
+            let dayMonth = [0,31,28,31,30,31,30,31,31,30,31,30,31];
+            let startMonth = new Date(firstYear, 0 , 1).getDate();
+
+            for( i = firstYear ; i <= lastYear; i++){
+                if(( i % 4 === 0 && i % 100 != 0 || i % 400 === 0)){
+
+                    dayMonth[2] = 29
+
+                }else{
+                    dayMonth[2] = 28;
+                }
+
+                for (j = 1; j <= 12; j++){
+                    if(startMonth === 0){
+                        sunday = sunday + 1
+                    }
+
+                    console.log("Start from " + j + "from" + i + " " + startMonth );
+                    startMonth = ( startMonth + dayMonth[j] % 7) % 7;
+                }
+            }
+            return sunday
+        }
+
+        console.log("total sunday are" + countSunday(1901, 2000))
+
+
+    </script>
+</body>
+
+</html>
