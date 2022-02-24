@@ -58,59 +58,128 @@
         console.log(spinWord("Hey Fellow Warriors"))
 
 
-///--------------------------------------------------------------------------------------------------------/////
+        ///--------------------------------------------------------------------------------------------------------/////
 
 
-//////////////QS.2....You are given the following information, but you may prefer to do some research for yourself.
+        //////////////QS.2....You are given the following information, but you may prefer to do some research for yourself.
 
- 
-// 1 Jan 1900 was a Monday.
-// Thirty days has September,
-// April, June and November.
-// All the rest have thirty-one,
-// Saving February alone,
-// Which has twenty-eight, rain or shine.
-// And on leap years, twenty-nine.
-// A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
-// How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 
- 
+        // 1 Jan 1900 was a Monday.
+        // Thirty days has September,
+        // April, June and November.
+        // All the rest have thirty-one,
+        // Saving February alone,
+        // Which has twenty-eight, rain or shine.
+        // And on leap years, twenty-nine.
+        // A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
+        // How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 
-// Try solving through code ...
 
-//////ANS ======//////
-        
-        let countSunday = (firstYear, lastYear) =>{
+
+        // Try solving through code ...
+
+        //////ANS ======//////
+
+        let countSunday = (firstYear, lastYear) => {
 
             let sunday = 0;
-            let i ;
-            let j ;
+            let i;
+            let j;
 
-            let dayMonth = [0,31,28,31,30,31,30,31,31,30,31,30,31];
-            let startMonth = new Date(firstYear, 0 , 1).getDate();
+            let dayMonth = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            let startMonth = new Date(firstYear, 0, 1).getDate();
 
-            for( i = firstYear ; i <= lastYear; i++){
-                if(( i % 4 === 0 && i % 100 != 0 || i % 400 === 0)){
+            for (i = firstYear; i <= lastYear; i++) {
+                if ((i % 4 === 0 && i % 100 != 0 || i % 400 === 0)) {
 
                     dayMonth[2] = 29
 
-                }else{
+                } else {
                     dayMonth[2] = 28;
                 }
 
-                for (j = 1; j <= 12; j++){
-                    if(startMonth === 0){
+                for (j = 1; j <= 12; j++) {
+                    if (startMonth === 0) {
                         sunday = sunday + 1
                     }
 
-                    console.log("Start from " + j + "from" + i + " " + startMonth );
-                    startMonth = ( startMonth + dayMonth[j] % 7) % 7;
+                    console.log("Start from " + j + "from" + i + " " + startMonth);
+                    startMonth = (startMonth + dayMonth[j] % 7) % 7;
                 }
             }
             return sunday
         }
 
         console.log("total sunday are" + countSunday(1901, 2000))
+
+//----------------------------------------------------------------------//
+
+
+        /////Q5 Write a JavaScript function that reverse a number. Example x = 32243; Expected Output : 34223///
+
+        ////ANS -----///
+        function reverse_num(n) {
+
+            n = n + ''
+
+            return n.split("").reverse().join("")
+
+        }
+        console.log(reverse_num("34223"));
+
+
+
+        ////////Q1 Find the second Highest element from the array const arr = [12, 35, 1, 10, 34, 1]////
+        ///ANS-----///
+
+        let arr = [12, 35, 1, 10, 34, 1];
+        let largeNumber = 0;
+        let secondLarge = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+
+            if (arr[i] > largeNumber) {
+                secondLarge = largeNumber
+                largeNumber = arr[i]
+            } else if (secondLarge > arr[i] > largeNumber) {
+                secondLarge = arr[i]
+            }
+        }
+        console.log(secondLarge);
+
+        //--------------------------------------------------------------------//
+
+
+        //Q2 Program to find out prime numbers in a given array. [12, 35, 1, 10, 34, 1]//
+        //ANS///
+
+        let a = [12,35,1,10,34,1];
+        let prime = [];
+
+        function isPrime(n) {
+            var find = n / 2;
+            for (let i = 2; i <= n; i++){
+                if((n % i) == 0){
+                    return false
+                }
+            }
+            return true
+        }
+        for (let j =0; j < a.length ; j++){
+            if (isPrime(a[j])){
+                prime.push(a[j])
+            }
+        }
+
+        console.log(prime)
+
+        //Q4 Using a for loop print all even numbers up to and including n. Don’t include 0.//
+
+            for(let i = 1; i < 100; i++){
+                if ( i % 2 == 0){
+                    console.log(" even no." + i)
+                }
+            }
 
 
     </script>
