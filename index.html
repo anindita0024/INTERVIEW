@@ -112,20 +112,9 @@
 
         console.log("total sunday are" + countSunday(1901, 2000))
 
-//----------------------------------------------------------------------//
+        //----------------------------------------------------------------------//
 
 
-        /////Q5 Write a JavaScript function that reverse a number. Example x = 32243; Expected Output : 34223///
-
-        ////ANS -----///
-        function reverse_num(n) {
-
-            n = n + ''
-
-            return n.split("").reverse().join("")
-
-        }
-        console.log(reverse_num("34223"));
 
 
 
@@ -153,33 +142,61 @@
         //Q2 Program to find out prime numbers in a given array. [12, 35, 1, 10, 34, 1]//
         //ANS///
 
-        let a = [12,35,1,10,34,1];
+        let a = [12, 35, 1, 10, 34, 1];
         let prime = [];
 
         function isPrime(n) {
             var find = n / 2;
-            for (let i = 2; i <= n; i++){
-                if((n % i) == 0){
+            for (let i = 2; i <= n; i++) {
+                if ((n % i) == 0) {
                     return false
                 }
             }
             return true
         }
-        for (let j =0; j < a.length ; j++){
-            if (isPrime(a[j])){
+        for (let j = 0; j < a.length; j++) {
+            if (isPrime(a[j])) {
                 prime.push(a[j])
             }
         }
 
-        console.log(prime)
+        console.log(prime);
+
+        //Q3 Problem on js print numbers that divisible by 3 and 5 and both///
+
+        function result(n) {
+
+            for (let i = 0; i < n; i++) {
+                if (i % 3 == 0 && i % 5 == 0)
+                    document.write(+ i + " ")
+            }
+
+        }
+        let n = 100;
+        result(n);
 
         //Q4 Using a for loop print all even numbers up to and including n. Don’t include 0.//
 
-            for(let i = 1; i < 100; i++){
-                if ( i % 2 == 0){
-                    console.log(" even no." + i)
-                }
+        for (let i = 1; i < 100; i++) {
+            if (i % 2 == 0) {
+                console.log(" even no." + i)
             }
+        }
+
+
+
+        /////Q5 Write a JavaScript function that reverse a number. Example x = 32243; Expected Output : 34223///
+
+        ////ANS -----///
+        function reverse_num(n) {
+
+            n = n + ''
+
+            return n.split("").reverse().join("")
+
+        }
+        console.log(reverse_num("34223"));
+
 
 
     </script>
